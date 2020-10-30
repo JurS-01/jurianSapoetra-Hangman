@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Hangman</title>
+    <link rel="stylesheet" type="text/css" href="./styles/style.css">
+    <link href=" https://fonts.googleapis.com/css?family=Bowlby One SC" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Gothic A1" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Galindo" rel="stylesheet">
+    <script defer type="text/javascript" src="script.js"></script>
+</head>
+
+<body>
+    <div class="container" id="blur">
+        <div class="content">
+            <header class="header">
+                <h1>Hangman</h1>
+                <img src="./images/hangman-black.png" />
+                <h2>the most dangerous word game</h2>
+            </header>
+            <main class="main-container">
+                <div class="play-container">
+                    <div class="guess-box play">
+                        <h3>Guess a letter:</h3>
+                        <input id="input-letter" type="text" maxlength="1" /><br>
+                        <button class="guess btn">Guess</button>
+                        <button class="restart btn">Restart</button>
+                    </div>
+                    <div class="correct-box play">
+                        <h3>Current word:</h3>
+                        <span class="the_word status">_ _ _ _ _</span>
+                    </div>
+                    <div class="incorrect-box play">
+                        <h3>Incorrectly guessed letters:</h3>
+                        <span class="guessed_letters status"></span>
+                    </div>
+                    <div class="lives-box play">
+                        <h3>Lives remaining:</h3>
+                        <p class="lives"> <span class="status"></span> </p>
+                    </div>
+                </div>
+                <div class="hangman-container">
+                    <img id="hangman-status-pic" src="./images/6.jpg" alt="">
+                </div>
+            </main>
+            <footer class="footer">
+                <p>[no people will actually be harmed during this game]</p>
+                <p>Icons made by <a href="https://www.flaticon.com/authors/vectors-market"
+                        title="Vectors Market">Vectors
+                        Market</a>, <a href="https://www.flaticon.com/authors/smashicons"
+                        title="Smashicons">Smashicons</a>
+                    and
+                    <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from
+                    <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a><br>
+                </p>
+            </footer>
+        </div>
+    </div>
+    <div class="win" id="popup-win">
+        <h2>You won!</h2>
+        <img src="./images/happy.png" class="pop-img" id="happy-face" />
+        <img src="./images/trophy.png" class="pop-img" id="trophy" /><br>
+        <button class="close-popup btn">Back to game</button>
+    </div>
+    <div class="lose" id="popup-lose">
+        <h2>You lost..</h2>
+        <img src="./images/dead.png" class="pop-img" id="dead-face" />
+        <img src="./images/hangman.png" class="pop-img" id="hang-puppet" />
+        <p>The chosen word was: <span></span></p>
+        <button class="close-popup btn">Back to game</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+@import "./constants";
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: $fontStandard;
+    background-color: #F2EEE2;
+    background-image: url("../images/bg-pattern1.png");
+    background-blend-mode: multiply;
+    background-size: cover;
+  }
+
+  .header {
+    @include outsideStyling();
+    & img {
+    height: 50px;
+    }
+    & h1 {
+        text-shadow: $headerShadow;
+        font-family: $fontH1H2;
+    }
+  }
+
+  .footer {
+    @include outsideStyling();
+    & a {
+    color: $outsideColor;
+    }
+  }
+
+  h2 {
+    text-shadow: $headerShadow;
+    font-family: $fontH1H2;
+ }
+
+  .main-container {
+    background: #6EC4DB;
+    padding: 100px;
+    width: 1200px;
+    margin: auto;
+    border: 5px solid $outsideColor;
+    border-radius: 20px;
+    box-shadow: 4px 4px 10px black;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    & h3 {
+        color: $outsideColor;
+        text-shadow: $headerShadow;
+        font-family: $fontH3;
+        margin-bottom: 10px;
+    }
+  }
+
+  .play-container {
+    & #input-letter {
+      width: 50px;
+      height: 50px;
+      box-shadow: 4px 4px 10px grey;
+      border-radius: 10px;
+      font: bold 30px $fontStandard;
+      text-align: center;
+    }
+    & .play {
+      margin-bottom: 30px;
+    }
+    & .status {
+      font: bold 30px $fontStandard;
+      background: white;
+      @include greyBorder();
+      border-radius: 10px;
+      padding: 10px;
+    }
+  }
+
+  button {
+    &.btn {
+        font-family: $fontH3;
+        padding: 10px;
+        margin: 10px 10px 10px 0;
+        font-size: 20px;
+        text-shadow: 1px 1px 1px lightgrey;
+        box-shadow: 4px 4px 10px grey;
+        border-radius: 10px;
+        &:hover {
+            background: #66AB8C;
+            color: white;
+            text-shadow: 1px 1px 1px black;
+          }
+      }
+    &.guess {
+        background: darkgoldenrod;
+      }
+    &.restart {
+        background: cadetblue;
+      }
+  }
+
+  .hangman-container {
+    background: white;
+    @include greyBorder();
+    border: 3px solid $outsideColor;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 50px;
+  }
+  
+
+  // Game finished
+
+  .container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+      transition: 0.5s;
+      padding: 20px;
+      &#blur.active {
+        filter: blur(20px);
+        pointer-events: none;
+        user-select: none;
+    }
+      & .content {
+        position: relative;
+    }
+  }  
+
+  #popup-win {
+      @include popupBox();
+      &.active {
+        @include popupBoxActive();
+      }
+  }
+
+  #popup-lose {
+    @include popupBox();
+    &.active {
+      @include popupBoxActive();
+    }
+  }
+
+  .win {
+    display: none;
+    & h2 {
+        color: blue;
+      }
+    & img#trophy {
+        @include popupImg();
+        animation:  grow 3s infinite ease-in 0.5s forwards;
+      }
+    & img#happy-face {
+        @include popupImg();
+        animation:  turn 5s 3 ease-in 2s forwards;
+      }     
+  }
+
+  .lose {
+    display: none;
+    & h2 {
+        color: red;
+      }
+    & img#hang-puppet {
+        @include popupImg();
+        transform-origin: top;
+        animation:  swing 3s infinite ease-in 0.5s forwards;
+      }
+    & img#dead-face {
+        @include popupImg();
+        animation:  dead 3s 1 ease-in 2s forwards;
+      }
+  }

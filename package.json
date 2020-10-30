@@ -1,0 +1,16 @@
+{
+  "name": "level30_eind_galgje",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@testing-library/jest-dom": "^5.11.5",
+    "jest": "^26.5.3"
+  }
+}
