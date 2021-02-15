@@ -35,14 +35,14 @@ test("game is over", () => {
 
 
 test("word contains guessed letter", () => {
-    expect(testLetterCheck("developer", "w")).toBe(false);
-    expect(testLetterCheck("developer", "l")).toBe(true);
+    expect(testLetterCheck("developer", "w")).toBe("w");
+    expect(testLetterCheck("developer", "l")).toBe("");
 });
 
 
 test("returns guessed letter(s)", () => {
-    expect(testWordCheck(["developer"], ["q"])).toBe("_");
-    expect(testWordCheck(["developer"], ["e"])).toBe("e");
+    expect(testWordCheck("developer", "q")).toBe("_ _ _ _ _ _ _ _ _");
+    expect(testWordCheck("developer", "e")).toBe("_ e _ e _ _ _ e _");
 });
 
 
