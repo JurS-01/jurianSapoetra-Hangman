@@ -1,31 +1,24 @@
-const testLetterCheck = (word, [...input]) => {
-    input.filter(letter => {
-        if (word.includes(letter)) {
-            return true;
-            // console.log(true);
-        } else {
-            return false;
-            // console.log(false);
-        }
-    })
+const testLetterCheck = (word, [...inputs]) => {
+    let wrongLetters = inputs.filter(letter => {
+        return !word.includes(letter);
+    });
+    return wrongLetters.join(" ");
 };
-// testLetterCheck("developer", "e");
-console.log(testLetterCheck("developer", "e"));
+console.log(testLetterCheck("developer", "q"));
+
 
 
 const testWordCheck = ([...word], inputLetterWords) => {
-    word.map(letter => {
+    let display = word.map(letter => {
         if (inputLetterWords.includes(letter)) {
             return letter;
-            // console.log(letter);
         } else {
             return "_";
-            // console.log("_");
         }
     });
+    return display.join(" ");
 };
-// testWordCheck("developer", "e");
-console.log(testWordCheck("developer", "e"));
+console.log(testWordCheck("developer", "w"));
 
 
 module.exports = {
@@ -35,11 +28,6 @@ module.exports = {
 
 
 
-
-
-// const winGame = (input, answer) => {
-//     return input === answer;
-// };
 
 
 /*
